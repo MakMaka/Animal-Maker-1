@@ -19,7 +19,7 @@ public class RandomBackground : MonoBehaviour
 
     int textCheck;
 
-    int i = 0;
+   // int i = 0;
 
     private void OnMouseDown()
     {
@@ -34,6 +34,7 @@ public class RandomBackground : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         if (PlayerPrefs.GetString("Music") == "no")
         {
             GameObject.Find("NatureAudio").GetComponent<AudioSource>().Stop();

@@ -18,7 +18,7 @@ public class RandomBackgraund2 : MonoBehaviour
 
     int textCheck;
 
-    int i = 0;
+    //int i = 0;
 
     private void OnMouseDown()
     {
@@ -41,6 +41,8 @@ public class RandomBackgraund2 : MonoBehaviour
         {
             GameObject.Find("NatureAudio").GetComponent<AudioSource>().Play();
         }
+
+
     }
 
     private void OnMouseUpAsButton()
