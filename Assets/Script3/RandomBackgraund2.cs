@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Advertisements;
 
 public class RandomBackgraund2 : MonoBehaviour
 {
@@ -34,11 +33,6 @@ public class RandomBackgraund2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (Advertisement.isSupported)
-        {
-            Advertisement.Initialize("e979571e-3da3-4da9-8847-56e67f8c6042", false);
-        }
-
         if (PlayerPrefs.GetString("Music") == "no")
         {
             GameObject.Find("NatureAudio").GetComponent<AudioSource>().Stop();
@@ -76,7 +70,8 @@ public class RandomBackgraund2 : MonoBehaviour
                 {
                     if (sl.value < popitok)
                     {
-                        GetComponent<AudioSource>().Play();
+                        if (PlayerPrefs.GetString("Music") != "no")
+                            GetComponent<AudioSource>().Play();
                         ran.onRandomchik = true;
                         sl.value = sl.value + 1;
                     }
@@ -90,10 +85,6 @@ public class RandomBackgraund2 : MonoBehaviour
                 {
                     GameObject.Find("NatureAudio").GetComponent<AudioSource>().Stop();
                     canvas.SetActive(true);
-                    if (Advertisement.IsReady())
-                    {
-                        Advertisement.Show();
-                    }
                 }
                     
             }
@@ -101,10 +92,6 @@ public class RandomBackgraund2 : MonoBehaviour
             {
                 GameObject.Find("NatureAudio").GetComponent<AudioSource>().Stop();
                 canvas.SetActive(true);
-                if (Advertisement.IsReady())
-                {
-                    Advertisement.Show();
-                }
             }
                 
         }
@@ -113,10 +100,6 @@ public class RandomBackgraund2 : MonoBehaviour
         {
             GameObject.Find("NatureAudio").GetComponent<AudioSource>().Stop();
             canvas.SetActive(true);
-            if (Advertisement.IsReady())
-            {
-                Advertisement.Show();
-            }
         }
     }
 
@@ -132,10 +115,6 @@ public class RandomBackgraund2 : MonoBehaviour
                 {
                     GameObject.Find("NatureAudio").GetComponent<AudioSource>().Stop();
                     canvas.SetActive(true);
-                    if (Advertisement.IsReady())
-                    {
-                        Advertisement.Show();
-                    }
                 }
                 else
                     ran.onRandomchik = true;
