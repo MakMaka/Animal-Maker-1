@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Advertisements;
 
 public class RandomBackgraund2 : MonoBehaviour
 {
@@ -34,7 +33,6 @@ public class RandomBackgraund2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
         if (PlayerPrefs.GetString("Music") == "no")
         {
             GameObject.Find("NatureAudio").GetComponent<AudioSource>().Stop();
@@ -74,7 +72,8 @@ public class RandomBackgraund2 : MonoBehaviour
                 {
                     if (sl.value < popitok)
                     {
-                        GetComponent<AudioSource>().Play();
+                        if (PlayerPrefs.GetString("Music") != "no")
+                            GetComponent<AudioSource>().Play();
                         ran.onRandomchik = true;
                         sl.value = sl.value + 1;
                     }
@@ -88,7 +87,6 @@ public class RandomBackgraund2 : MonoBehaviour
                 {
                     GameObject.Find("NatureAudio").GetComponent<AudioSource>().Stop();
                     canvas.SetActive(true);
-                    
                 }
                     
             }
@@ -96,7 +94,6 @@ public class RandomBackgraund2 : MonoBehaviour
             {
                 GameObject.Find("NatureAudio").GetComponent<AudioSource>().Stop();
                 canvas.SetActive(true);
-                
             }
                 
         }
@@ -105,7 +102,6 @@ public class RandomBackgraund2 : MonoBehaviour
         {
             GameObject.Find("NatureAudio").GetComponent<AudioSource>().Stop();
             canvas.SetActive(true);
-            
         }
     }
 
@@ -121,7 +117,6 @@ public class RandomBackgraund2 : MonoBehaviour
                 {
                     GameObject.Find("NatureAudio").GetComponent<AudioSource>().Stop();
                     canvas.SetActive(true);
-                    
                 }
                 else
                     ran.onRandomchik = true;

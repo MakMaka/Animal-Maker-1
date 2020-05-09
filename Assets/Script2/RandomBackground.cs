@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Advertisements;
 
 public class RandomBackground : MonoBehaviour
 {
@@ -73,7 +72,8 @@ public class RandomBackground : MonoBehaviour
         {
             if(sl.value < popitok)
             {
-                GetComponent<AudioSource>().Play();
+                if (PlayerPrefs.GetString("Music") != "no")
+                    GetComponent<AudioSource>().Play();
                 ran.onRandomchik = true;
                 sl.value = sl.value + 1;
             }
@@ -89,7 +89,6 @@ public class RandomBackground : MonoBehaviour
         {
             GameObject.Find("NatureAudio").GetComponent<AudioSource>().Stop();
             canvas.SetActive(true);
-            
         }
 
     }
@@ -100,7 +99,6 @@ public class RandomBackground : MonoBehaviour
         {
             GameObject.Find("NatureAudio").GetComponent<AudioSource>().Stop();
             canvas.SetActive(true);
-           
         }
         else
         if(ran.type != sts.Type())
