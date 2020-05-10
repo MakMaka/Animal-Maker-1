@@ -16,6 +16,10 @@ public class RandomBackground : MonoBehaviour
 
     public Sprite colDown, colUp;
 
+    public static bool rightChoise = false;
+    public static bool losing = false;
+    public static bool lvlComplete= false;
+
     int textCheck;
 
    // int i = 0;
@@ -47,7 +51,11 @@ public class RandomBackground : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (Narrative.canLoadNext)
+        {
+            GameObject.Find("NatureAudio").GetComponent<AudioSource>().Stop();
+            Application.LoadLevel("Game3");
+        }
     }
 
     private void OnMouseUpAsButton()
@@ -77,36 +85,37 @@ public class RandomBackground : MonoBehaviour
                 if (PlayerPrefs.GetString("Music") != "no")
                     GetComponent<AudioSource>().Play();
                 ran.onRandomchik = true;
-                sl.value = sl.value + 1;
+                sl.value++;
             }
-            if(sl.value == 5)
+            if (sl.value == 1)
+                rightChoise = true;
+            if (sl.value == 5)
             {
-                GameObject.Find("NatureAudio").GetComponent<AudioSource>().Stop();
-                Application.LoadLevel("Game3");
+                lvlComplete = true;
             }
-
         }
-        else
+        else 
         if (ran.type != true)
         {
+            losing = true;
             GameObject.Find("NatureAudio").GetComponent<AudioSource>().Stop();
             canvas.SetActive(true);
         }
-
     }
 
     public void CheckStatistic2()
     {
         if (ran.type == true)
         {
+            losing = true;
             GameObject.Find("NatureAudio").GetComponent<AudioSource>().Stop();
             canvas.SetActive(true);
         }
         else
         if(ran.type != true)
-        {
-                ran.onRandomchik = true;
+        {          
+            ran.onRandomchik = true;
         }
-
     }
+
 }

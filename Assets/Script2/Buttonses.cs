@@ -5,7 +5,7 @@ using UnityEngine;
 public class Buttonses : MonoBehaviour
 {
     public Sprite colDown, colUp;
-
+    //public static bool isReloaded=false;
 
     private void OnMouseDown()
     {
@@ -27,6 +27,7 @@ public class Buttonses : MonoBehaviour
                 Application.LoadLevel("Menu");
                 break;
             case "Reload":
+                //isReloaded = true;
                 Application.LoadLevel("Game");
                 break;
         }
