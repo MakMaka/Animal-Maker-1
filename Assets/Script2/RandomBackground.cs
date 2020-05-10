@@ -7,7 +7,6 @@ public class RandomBackground : MonoBehaviour
 {
 
     public Randomchik ran;
-    public Statistics sts;
 
     public GameObject canvas;
     public Slider sl;
@@ -63,12 +62,15 @@ public class RandomBackground : MonoBehaviour
             case "Cancel_Button":
                 CheckStatistic2();
                 break;
+            case "Right":
+                Application.LoadLevel("Game3");
+                break;
         }
     }
 
     public void CheckStatistic()
     {
-        if (ran.type == sts.Type())
+        if (ran.type == true)
         {
             if(sl.value < popitok)
             {
@@ -80,12 +82,12 @@ public class RandomBackground : MonoBehaviour
             if(sl.value == 5)
             {
                 GameObject.Find("NatureAudio").GetComponent<AudioSource>().Stop();
-                Application.LoadLevel("Game2");
+                Application.LoadLevel("Game3");
             }
 
         }
         else
-        if (ran.type != sts.Type())
+        if (ran.type != true)
         {
             GameObject.Find("NatureAudio").GetComponent<AudioSource>().Stop();
             canvas.SetActive(true);
@@ -95,13 +97,13 @@ public class RandomBackground : MonoBehaviour
 
     public void CheckStatistic2()
     {
-        if (ran.type == sts.Type())
+        if (ran.type == true)
         {
             GameObject.Find("NatureAudio").GetComponent<AudioSource>().Stop();
             canvas.SetActive(true);
         }
         else
-        if(ran.type != sts.Type())
+        if(ran.type != true)
         {
                 ran.onRandomchik = true;
         }

@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class RandomBackgraund2 : MonoBehaviour
+public class RandomBackgraund4 : MonoBehaviour
 {
     public Randomchik ran;
-    public Statistics2 sts2;
 
     public GameObject canvas;
     public Slider sl;
@@ -41,8 +40,6 @@ public class RandomBackgraund2 : MonoBehaviour
         {
             GameObject.Find("NatureAudio").GetComponent<AudioSource>().Play();
         }
-
-
     }
 
     private void OnMouseUpAsButton()
@@ -58,50 +55,40 @@ public class RandomBackgraund2 : MonoBehaviour
                 CheckStatistic2();
                 break;
             case "Right":
-                Application.LoadLevel("Game5");
+                Application.LoadLevel("Game2");
                 break;
         }
     }
 
     public void CheckStatistic()
     {
-        if (ran.type == sts2.Type())
+        if (ran.type == true)
         {
-            textCheck = int.Parse(ran.animalTorso2.text);
+            textCheck = int.Parse(ran.animalhead.text);
             if (textCheck > 51)
             {
-                textCheck = int.Parse(ran.animalLegs2.text);
-                if(textCheck < 50)
+                if (sl.value < popitok)
                 {
-                    if (sl.value < popitok)
-                    {
-                        if (PlayerPrefs.GetString("Music") != "no")
-                            GetComponent<AudioSource>().Play();
-                        ran.onRandomchik = true;
-                        sl.value = sl.value + 1;
-                    }
-                    if (sl.value == 5)
-                    {
-                        GameObject.Find("NatureAudio").GetComponent<AudioSource>().Stop();
-                        Application.LoadLevel("Game5");
-                    }
+                    if (PlayerPrefs.GetString("Music") != "no")
+                        GetComponent<AudioSource>().Play();
+                    ran.onRandomchik = true;
+                    sl.value = sl.value + 1;
                 }
-                else
+                if (sl.value == 5)
                 {
                     GameObject.Find("NatureAudio").GetComponent<AudioSource>().Stop();
-                    canvas.SetActive(true);
+                    Application.LoadLevel("Game2");
                 }
-                    
             }
             else
             {
                 GameObject.Find("NatureAudio").GetComponent<AudioSource>().Stop();
                 canvas.SetActive(true);
             }
-                
+
         }
         else
-        if (ran.type != sts2.Type())
+        if (ran.type != true)
         {
             GameObject.Find("NatureAudio").GetComponent<AudioSource>().Stop();
             canvas.SetActive(true);
@@ -110,25 +97,19 @@ public class RandomBackgraund2 : MonoBehaviour
 
     public void CheckStatistic2()
     {
-        if (ran.type == sts2.Type())
+        if (ran.type == true)
         {
-            textCheck = int.Parse(ran.animalTorso2.text);
+            textCheck = int.Parse(ran.animalhead.text);
             if (textCheck > 50)
             {
-                textCheck = int.Parse(ran.animalLegs2.text);
-                if (textCheck < 50)
-                {
-                    GameObject.Find("NatureAudio").GetComponent<AudioSource>().Stop();
-                    canvas.SetActive(true);
-                }
-                else
-                    ran.onRandomchik = true;
+                GameObject.Find("NatureAudio").GetComponent<AudioSource>().Stop();
+                canvas.SetActive(true);
             }
             else
                 ran.onRandomchik = true;
         }
         else
-        if (ran.type != sts2.Type())
+        if (ran.type != true)
         {
             ran.onRandomchik = true;
         }
