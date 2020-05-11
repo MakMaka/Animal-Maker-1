@@ -40,8 +40,6 @@ public class RandomBackgraund5 : MonoBehaviour
         {
             GameObject.Find("NatureAudio").GetComponent<AudioSource>().Play();
         }
-
-
     }
 
     private void OnMouseUpAsButton()
@@ -64,13 +62,13 @@ public class RandomBackgraund5 : MonoBehaviour
         if (ran.type == true)
         {
             textCheck = int.Parse(ran.animalhead.text);
-            if (textCheck > 51)
+            if (textCheck > 50)
             {
                 textCheck = int.Parse(ran.animalTorso.text);
                 if (textCheck < 50)
                 {
                     textCheck = int.Parse(ran.animalLegs2.text);
-                    if (textCheck > 51)
+                    if (textCheck > 50)
                     {
                         if (sl.value < popitok)
                         {
@@ -85,6 +83,7 @@ public class RandomBackgraund5 : MonoBehaviour
                             //Application.LoadLevel("Game5");
                         }
                     }
+                    else
                     {
                         GameObject.Find("NatureAudio").GetComponent<AudioSource>().Stop();
                         canvas.SetActive(true);
@@ -106,7 +105,6 @@ public class RandomBackgraund5 : MonoBehaviour
 
         }
         else
-        if (ran.type != true)
         {
             GameObject.Find("NatureAudio").GetComponent<AudioSource>().Stop();
             canvas.SetActive(true);
@@ -123,7 +121,7 @@ public class RandomBackgraund5 : MonoBehaviour
                 textCheck = int.Parse(ran.animalTorso.text);
                 if (textCheck < 50)
                 {
-                    textCheck = int.Parse(ran.animalTorso.text);
+                    textCheck = int.Parse(ran.animalLegs2.text);
                     if(textCheck > 50)
                     {
                         GameObject.Find("NatureAudio").GetComponent<AudioSource>().Stop();
