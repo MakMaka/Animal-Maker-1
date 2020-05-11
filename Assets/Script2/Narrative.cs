@@ -54,6 +54,11 @@ public class Narrative : MonoBehaviour
 
     void Update()
     {
+        if (Buttonses.isReloaded)
+        {
+            confused.SetActive(false);
+            Buttonses.isReloaded = false;
+        }
         if (!isEsc)
         {
             if (Input.GetKeyDown(KeyCode.Escape))

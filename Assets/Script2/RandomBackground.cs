@@ -12,17 +12,11 @@ public class RandomBackground : MonoBehaviour
     public Slider sl;
     int popitok = 6;
 
-    private bool nextLevel;
-
     public Sprite colDown, colUp;
 
     public static bool rightChoise = false;
     public static bool losing = false;
     public static bool lvlComplete= false;
-
-    int textCheck;
-
-   // int i = 0;
 
     private void OnMouseDown()
     {
@@ -37,7 +31,6 @@ public class RandomBackground : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         if (PlayerPrefs.GetString("Music") == "no")
         {
             GameObject.Find("NatureAudio").GetComponent<AudioSource>().Stop();
