@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class CanvasCheck : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        if (PlayerPrefs.GetString("Music") != "no")
-            GetComponent<AudioSource>().Play();
-    }
 
-    // Update is called once per frame
-    void Update()
+    private void OnEnable()
     {
-        
+        if (PlayerPrefs.GetString("Music") == "no")
+        {
+            GetComponent<AudioSource>().Stop();
+        }
+        else
+        {
+            GetComponent<AudioSource>().Play();
+        }
+            
     }
 }
