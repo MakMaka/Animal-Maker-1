@@ -9,6 +9,7 @@ public class Randomchik : MonoBehaviour
 
     public GameObject[] headD;
     public GameObject[] headP;
+    public GameObject[] torso;
 
     public GameObject textPl;
     public GameObject background;
@@ -45,8 +46,18 @@ public class Randomchik : MonoBehaviour
             for (int k = 0; k < headD.Length; k++)
             {
                 headD[k].SetActive(false);
+            }
+            for (int k = 0; k < headP.Length; k++)
+            {
                 headP[k].SetActive(false);
             }
+            for (int k = 0; k < torso.Length; k++)
+            {
+                torso[k].SetActive(false);
+            }
+
+            randStatistic = Random.Range(0,5);
+            torso[randStatistic].SetActive(true);
 
             randStatistic = Random.Range(6, 100);
             animalhead.text = randStatistic.ToString();
