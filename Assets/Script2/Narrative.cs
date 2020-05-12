@@ -7,6 +7,7 @@ public class Narrative : MonoBehaviour
 {
     public GameObject blocker;
     Image blockerImage;
+    BoxCollider2D blockerCollider;
 
     public GameObject confused;
     public GameObject smiling;
@@ -20,7 +21,7 @@ public class Narrative : MonoBehaviour
     
     public int counter = 0;
 
-    List<string> guides = new List<string>(5);
+    List<string> guides = new List<string>(8);
 
     bool rightChoiseGuide = false;
     bool losingGuide = false;
@@ -43,22 +44,23 @@ public class Narrative : MonoBehaviour
     }
 
     void Start()
-    {
-        
+    {     
         AddGuides();
         narrText.text = intro;
         blocker.SetActive(true);
         stock.SetActive(true);
         blockerImage = blocker.GetComponent<Image>();
-    }
-
-    void Update()
-    {
+        blockerCollider = blocker.GetComponent<BoxCollider2D>();
         if (Buttonses.isReloaded)
         {
             confused.SetActive(false);
             Buttonses.isReloaded = false;
         }
+    }
+
+    void Update()
+    {
+        
         if (!isEsc)
         {
             if (Input.GetKeyDown(KeyCode.Escape))
@@ -100,10 +102,11 @@ public class Narrative : MonoBehaviour
                 rightChoiseGuide = true;
                 RandomBackground.rightChoise = false;
             }
-            else if (RandomBackground.losing == true && losingGuide != true)
+            else if (RandomBackground.losing && !losingGuide)
             {
-                counter++;
+                counter=6;
                 narrText.text = guides[counter];
+                blockerCollider.enabled = false;
                 blocker.SetActive(true);
                 smiling.SetActive(false);
                 laughing.SetActive(false);
@@ -121,8 +124,7 @@ public class Narrative : MonoBehaviour
                 confused.SetActive(false);
                 stock.SetActive(true);
                 RandomBackground.lvlComplete = false;
-                StartCoroutine(WaitForInput());
-                
+                StartCoroutine(WaitForInput());                
             }
             else if (Input.anyKeyDown)
                 blocker.SetActive(false);
