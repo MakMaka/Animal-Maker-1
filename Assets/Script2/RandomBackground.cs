@@ -48,6 +48,7 @@ public class RandomBackground : MonoBehaviour
     {
         if (Narrative.canLoadNext)
         {
+            Narrative.canLoadNext = false;
             GameObject.Find("NatureAudio").GetComponent<AudioSource>().Stop();
             Application.LoadLevel("Game3");
         }

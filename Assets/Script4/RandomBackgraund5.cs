@@ -17,7 +17,7 @@ public class RandomBackgraund5 : MonoBehaviour
 
     int textCheck;
 
-    //int i = 0;
+    public static bool lvlComplete = false;
 
     private void OnMouseDown()
     {
@@ -41,6 +41,16 @@ public class RandomBackgraund5 : MonoBehaviour
             GameObject.Find("NatureAudio").GetComponent<AudioSource>().Play();
         }
         PlayerPrefs.SetInt("Level", 5);
+    }
+
+    private void Update()
+    {
+        if (EndingNarrative.canLoadMenu)
+        {
+            EndingNarrative.canLoadMenu = false;
+            GameObject.Find("NatureAudio").GetComponent<AudioSource>().Stop();
+            Application.LoadLevel("Menu");
+        }
     }
 
     private void OnMouseUpAsButton()
@@ -80,8 +90,9 @@ public class RandomBackgraund5 : MonoBehaviour
                         }
                         if (sl.value == 5)
                         {
+                            lvlComplete = true;
                             GameObject.Find("NatureAudio").GetComponent<AudioSource>().Stop();
-                            //Application.LoadLevel("Game5");
+                            //Application.LoadLevel("Menu");
                         }
                     }
                     else
