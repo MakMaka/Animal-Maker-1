@@ -40,6 +40,7 @@ public class RandomBeckgraund3 : MonoBehaviour
         {
             GameObject.Find("NatureAudio").GetComponent<AudioSource>().Play();
         }
+        PlayerPrefs.SetInt("Level",2);
     }
 
     private void OnMouseUpAsButton()
@@ -83,6 +84,7 @@ public class RandomBeckgraund3 : MonoBehaviour
             else
             {
                 GameObject.Find("NatureAudio").GetComponent<AudioSource>().Stop();
+                PlayerPrefs.SetInt("Level", 1);
                 canvas.SetActive(true);
             }
 
@@ -91,6 +93,7 @@ public class RandomBeckgraund3 : MonoBehaviour
         if (ran.type != false)
         {
             GameObject.Find("NatureAudio").GetComponent<AudioSource>().Stop();
+            PlayerPrefs.SetInt("Level", 1);
             canvas.SetActive(true);
         }
     }
@@ -102,8 +105,9 @@ public class RandomBeckgraund3 : MonoBehaviour
             textCheck = int.Parse(ran.animalLegs.text);
             if (textCheck > 50)
             {
-                    GameObject.Find("NatureAudio").GetComponent<AudioSource>().Stop();
-                    canvas.SetActive(true);
+                GameObject.Find("NatureAudio").GetComponent<AudioSource>().Stop();
+                PlayerPrefs.SetInt("Level", 1);
+                canvas.SetActive(true);
             }
             else
                 ran.onRandomchik = true;

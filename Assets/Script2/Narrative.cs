@@ -44,89 +44,89 @@ public class Narrative : MonoBehaviour
 
     void Start()
     {
-        
-        AddGuides();
-        narrText.text = intro;
-        blocker.SetActive(true);
-        stock.SetActive(true);
-        blockerImage = blocker.GetComponent<Image>();
+            AddGuides();
+            narrText.text = intro;
+            blocker.SetActive(true);
+            stock.SetActive(true);
+            blockerImage = blocker.GetComponent<Image>();
+
     }
 
     void Update()
     {
-        if (Buttonses.isReloaded)
-        {
-            confused.SetActive(false);
-            Buttonses.isReloaded = false;
-        }
-        if (!isEsc)
-        {
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (Buttonses.isReloaded)
             {
-                blocker.SetActive(false);
-                isEsc = true;
-            }
-            else if (counter < 5 && Input.anyKeyDown)
-            {
-                narrText.text = guides[counter];
-                if (counter == 1)
-                {
-                    blockerImage.enabled = false;
-                    arrows[0].SetActive(true);
-                }
-                else if (counter == 2 || counter == 3)
-                {
-                    arrows[0].SetActive(false);
-                    arrows[2].SetActive(true);
-                    arrows[1].SetActive(true);
-                }
-                else if (counter == 4)
-                {
-                    for (int i = 0; i < 3; i++)
-                        arrows[i].SetActive(false);
-                    blockerImage.enabled = true;
-                }
-                stock.SetActive(false);
                 confused.SetActive(false);
-                smiling.SetActive(true);
-                counter++;
+                Buttonses.isReloaded = false;
             }
-            else if (RandomBackground.rightChoise == true && rightChoiseGuide != true)
+            if (!isEsc)
             {
-                narrText.text = guides[counter];
-                blocker.SetActive(true);
-                smiling.SetActive(false);
-                laughing.SetActive(true);
-                rightChoiseGuide = true;
-                RandomBackground.rightChoise = false;
+                if (Input.GetKeyDown(KeyCode.Escape))
+                {
+                    blocker.SetActive(false);
+                    isEsc = true;
+                }
+                else if (counter < 5 && Input.anyKeyDown)
+                {
+                    narrText.text = guides[counter];
+                    if (counter == 1)
+                    {
+                        blockerImage.enabled = false;
+                        arrows[0].SetActive(true);
+                    }
+                    else if (counter == 2 || counter == 3)
+                    {
+                        arrows[0].SetActive(false);
+                        arrows[2].SetActive(true);
+                        arrows[1].SetActive(true);
+                    }
+                    else if (counter == 4)
+                    {
+                        for (int i = 0; i < 3; i++)
+                            arrows[i].SetActive(false);
+                        blockerImage.enabled = true;
+                    }
+                    stock.SetActive(false);
+                    confused.SetActive(false);
+                    smiling.SetActive(true);
+                    counter++;
+                }
+                else if (RandomBackground.rightChoise == true && rightChoiseGuide != true)
+                {
+                    narrText.text = guides[counter];
+                    blocker.SetActive(true);
+                    smiling.SetActive(false);
+                    laughing.SetActive(true);
+                    rightChoiseGuide = true;
+                    RandomBackground.rightChoise = false;
+                }
+                else if (RandomBackground.losing == true && losingGuide != true)
+                {
+                    counter++;
+                    narrText.text = guides[counter];
+                    blocker.SetActive(true);
+                    smiling.SetActive(false);
+                    laughing.SetActive(false);
+                    confused.SetActive(true);
+                    losingGuide = true;
+                    RandomBackground.losing = false;
+                }
+                else if (RandomBackground.lvlComplete == true)
+                {
+                    counter = 7;
+                    narrText.text = guides[counter];
+                    blocker.SetActive(true);
+                    smiling.SetActive(false);
+                    laughing.SetActive(false);
+                    confused.SetActive(false);
+                    stock.SetActive(true);
+                    RandomBackground.lvlComplete = false;
+                    StartCoroutine(WaitForInput());
+
+                }
+                else if (Input.anyKeyDown)
+                    blocker.SetActive(false);
             }
-            else if (RandomBackground.losing == true && losingGuide != true)
-            {
-                counter++;
-                narrText.text = guides[counter];
-                blocker.SetActive(true);
-                smiling.SetActive(false);
-                laughing.SetActive(false);
-                confused.SetActive(true);
-                losingGuide = true;
-                RandomBackground.losing = false;
-            }
-            else if (RandomBackground.lvlComplete == true)
-            {
-                counter=7;
-                narrText.text = guides[counter];
-                blocker.SetActive(true);
-                smiling.SetActive(false);
-                laughing.SetActive(false);
-                confused.SetActive(false);
-                stock.SetActive(true);
-                RandomBackground.lvlComplete = false;
-                StartCoroutine(WaitForInput());
-                
-            }
-            else if (Input.anyKeyDown)
-                blocker.SetActive(false);
-        }
     }
 
     static public IEnumerator WaitForInput()

@@ -40,6 +40,7 @@ public class RandomBackgraund4 : MonoBehaviour
         {
             GameObject.Find("NatureAudio").GetComponent<AudioSource>().Play();
         }
+        PlayerPrefs.SetInt("Level", 3);
     }
 
     private void OnMouseUpAsButton()

@@ -41,7 +41,7 @@ public class RandomBackgraund2 : MonoBehaviour
         {
             GameObject.Find("NatureAudio").GetComponent<AudioSource>().Play();
         }
-
+        PlayerPrefs.SetInt("Level", 4);
 
     }
 
