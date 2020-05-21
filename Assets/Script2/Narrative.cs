@@ -68,7 +68,7 @@ public class Narrative : MonoBehaviour
                 blocker.SetActive(false);
                 isEsc = true;
             }
-            else if (counter < 5 && Input.anyKeyDown)
+            else if (counter < 5 && Input.GetKeyDown(KeyCode.E))
             {
                 narrText.text = guides[counter];
                 if (counter == 1)
@@ -126,14 +126,14 @@ public class Narrative : MonoBehaviour
                 RandomBackground.lvlComplete = false;
                 StartCoroutine(WaitForInput());                
             }
-            else if (Input.anyKeyDown)
+            else if (Input.GetKeyDown(KeyCode.E))
                 blocker.SetActive(false);
         }
     }
 
     static public IEnumerator WaitForInput()
     {
-        while (!Input.anyKeyDown)
+        while (!Input.GetKeyDown(KeyCode.E))
         {
             yield return 0;
         }
