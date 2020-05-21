@@ -6,7 +6,11 @@ public class Buttons : MonoBehaviour
 {
     public GameObject n_on, n_off;
     public Sprite colDown, colUp;
+<<<<<<< HEAD
     //public bool guideSwitch;
+=======
+    public bool guideSwitch;
+>>>>>>> 9d19ac06210eac332b8c05a06c232bd147b847bf
 
     private void Start()
     {
