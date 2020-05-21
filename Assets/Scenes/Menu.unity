@@ -902,7 +902,7 @@ SpriteRenderer:
   m_SortingLayerID: -600480845
   m_SortingLayer: 5
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b81a6e7d833092542bfb14d2fb1a618b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 20e906854b4c38c46935e8681f0a3a09, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -921,8 +921,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 465676480}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -27.032, y: -4.891388, z: -27.51875}
-  m_LocalScale: {x: 0.6176328, y: 0.6176328, z: 0.6176328}
+  m_LocalPosition: {x: -26.18, y: -4.88, z: -27.51875}
+  m_LocalScale: {x: 0.33061332, y: 0.33061332, z: 0.33061332}
   m_Children: []
   m_Father: {fileID: 953020293}
   m_RootOrder: 1
@@ -944,7 +944,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.76, y: 2.77}
+    oldSize: {x: 4.3, y: 4.3}
     newSize: {x: 4.3, y: 4.3}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -967,6 +967,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   n_on: {fileID: 465676480}
   n_off: {fileID: 664104072}
+  colDown: {fileID: 21300000, guid: 20e906854b4c38c46935e8681f0a3a09, type: 3}
+  colUp: {fileID: 21300000, guid: 20e906854b4c38c46935e8681f0a3a09, type: 3}
   guideSwitch: 0
 --- !u!1 &469244657
 GameObject:
@@ -1614,8 +1616,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 664104072}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -27.116, y: -4.891388, z: -27.51875}
-  m_LocalScale: {x: 0.6176328, y: 0.6176328, z: 0.6176328}
+  m_LocalPosition: {x: -26.18, y: -4.88, z: -27.51875}
+  m_LocalScale: {x: 0.3306133, y: 0.3306133, z: 0.3306133}
   m_Children: []
   m_Father: {fileID: 953020293}
   m_RootOrder: 2
@@ -1634,6 +1636,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   n_on: {fileID: 465676480}
   n_off: {fileID: 664104072}
+  colDown: {fileID: 21300000, guid: f541cd065ce8e724fb8cac32224604b2, type: 3}
+  colUp: {fileID: 21300000, guid: f541cd065ce8e724fb8cac32224604b2, type: 3}
   guideSwitch: 0
 --- !u!61 &664104075
 BoxCollider2D:
@@ -1652,7 +1656,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.69, y: 2.77}
+    oldSize: {x: 4.3, y: 4.3}
     newSize: {x: 4.3, y: 4.3}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1700,7 +1704,7 @@ SpriteRenderer:
   m_SortingLayerID: -600480845
   m_SortingLayer: 5
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e6dfeec9339e2a54795e2f555415460a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f541cd065ce8e724fb8cac32224604b2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1769,7 +1773,7 @@ SpriteRenderer:
   m_SortingLayerID: -600480845
   m_SortingLayer: 5
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 962d7198201944448a51b2b57b954427, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 43df9310562af0a4dbcd31424f81b35f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1788,8 +1792,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 714946383}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -24.25, y: -4.89, z: -27.51875}
-  m_LocalScale: {x: 0.81757, y: 0.81757, z: 0.81757}
+  m_LocalPosition: {x: -24.17, y: -4.99, z: -27.51875}
+  m_LocalScale: {x: 0.47914392, y: 0.47914392, z: 0.47914392}
   m_Children: []
   m_Father: {fileID: 953020293}
   m_RootOrder: 0
@@ -1808,6 +1812,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   n_on: {fileID: 465676480}
   n_off: {fileID: 664104072}
+  colDown: {fileID: 21300000, guid: c1045f695a69c4448a146e181ac89318, type: 3}
+  colUp: {fileID: 21300000, guid: 43df9310562af0a4dbcd31424f81b35f, type: 3}
   guideSwitch: 0
 --- !u!61 &714946387
 BoxCollider2D:
@@ -1826,7 +1832,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.76, y: 2.74}
+    oldSize: {x: 4.3, y: 4.3}
     newSize: {x: 4.3, y: 4.3}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -3849,6 +3855,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   n_on: {fileID: 465676480}
   n_off: {fileID: 664104072}
+  colDown: {fileID: 0}
+  colUp: {fileID: 0}
   guideSwitch: 0
 --- !u!1 &2052928504
 GameObject:
