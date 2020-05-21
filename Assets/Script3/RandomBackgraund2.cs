@@ -41,7 +41,7 @@ public class RandomBackgraund2 : MonoBehaviour
         {
             GameObject.Find("NatureAudio").GetComponent<AudioSource>().Play();
         }
-
+        PlayerPrefs.SetInt("Level", 4);
 
     }
 
@@ -89,6 +89,7 @@ public class RandomBackgraund2 : MonoBehaviour
                 else
                 {
                     GameObject.Find("NatureAudio").GetComponent<AudioSource>().Stop();
+                    PlayerPrefs.SetInt("Level", 1);
                     canvas.SetActive(true);
                 }
                     
@@ -96,6 +97,7 @@ public class RandomBackgraund2 : MonoBehaviour
             else
             {
                 GameObject.Find("NatureAudio").GetComponent<AudioSource>().Stop();
+                PlayerPrefs.SetInt("Level", 1);
                 canvas.SetActive(true);
             }
                 
@@ -104,6 +106,7 @@ public class RandomBackgraund2 : MonoBehaviour
         if (ran.type != sts2.Type())
         {
             GameObject.Find("NatureAudio").GetComponent<AudioSource>().Stop();
+            PlayerPrefs.SetInt("Level", 1);
             canvas.SetActive(true);
         }
     }
@@ -119,6 +122,7 @@ public class RandomBackgraund2 : MonoBehaviour
                 if (textCheck < 50)
                 {
                     GameObject.Find("NatureAudio").GetComponent<AudioSource>().Stop();
+                    PlayerPrefs.SetInt("Level", 1);
                     canvas.SetActive(true);
                 }
                 else

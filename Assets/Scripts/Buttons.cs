@@ -42,7 +42,20 @@ public class Buttons : MonoBehaviour
         {
             case "Play_Button":
                 GameObject.Find("SpaceAudio").GetComponent<AudioSource>().Stop();
-                Application.LoadLevel("Game");
+                if (PlayerPrefs.GetInt("Level") != 1 && PlayerPrefs.GetInt("Level") != 2 && PlayerPrefs.GetInt("Level") != 3 
+                    && PlayerPrefs.GetInt("Level") != 4 && PlayerPrefs.GetInt("Level") != 5)
+                    Application.LoadLevel("Game");
+                if (PlayerPrefs.GetInt("Level") == 1)
+                    Application.LoadLevel("Game");
+                if (PlayerPrefs.GetInt("Level") == 2)
+                    Application.LoadLevel("Game3");
+                if (PlayerPrefs.GetInt("Level") == 3)
+                    Application.LoadLevel("Game4");
+                if (PlayerPrefs.GetInt("Level") == 4)
+                    Application.LoadLevel("Game2");
+                if (PlayerPrefs.GetInt("Level") == 5)
+                    Application.LoadLevel("Game5");
+
                 break;
             case "Audio_On_Button":
                 PlayerPrefs.SetString("Music", "no");
