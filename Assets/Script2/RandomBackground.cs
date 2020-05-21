@@ -31,7 +31,7 @@ public class RandomBackground : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        losing = false;
         if (PlayerPrefs.GetString("Music") == "no")
         {
             GameObject.Find("NatureAudio").GetComponent<AudioSource>().Stop();
@@ -95,6 +95,7 @@ public class RandomBackground : MonoBehaviour
         {
             losing = true;
             GameObject.Find("NatureAudio").GetComponent<AudioSource>().Stop();
+            PlayerPrefs.SetInt("Level", 1);
             canvas.SetActive(true);
         }
     }
@@ -105,6 +106,7 @@ public class RandomBackground : MonoBehaviour
         {
             losing = true;
             GameObject.Find("NatureAudio").GetComponent<AudioSource>().Stop();
+            PlayerPrefs.SetInt("Level", 1);
             canvas.SetActive(true);
         }
         else

@@ -129,6 +129,8 @@ public class Narrative : MonoBehaviour
             else if (Input.GetKeyDown(KeyCode.E))
                 blocker.SetActive(false);
         }
+        else if (RandomBackground.lvlComplete == true)
+            canLoadNext = true;
     }
 
     static public IEnumerator WaitForInput()

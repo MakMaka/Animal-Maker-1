@@ -5,8 +5,8 @@ using UnityEngine;
 public class Buttons : MonoBehaviour
 {
     public GameObject n_on, n_off;
-    //public Sprite colDown, colUp;
-    public bool guideSwitch;
+    public Sprite colDown, colUp;
+    //public bool guideSwitch;
 
     private void Start()
     {
@@ -26,12 +26,12 @@ public class Buttons : MonoBehaviour
 
     private void OnMouseDown()
     {
-        //GetComponent<SpriteRenderer>().sprite = colDown;
+        GetComponent<SpriteRenderer>().sprite = colDown;
     }
 
     public void OnMouseUp()
     {
-       // GetComponent<SpriteRenderer>().sprite = colUp;
+        GetComponent<SpriteRenderer>().sprite = colUp;
     }
 
     public void OnMouseUpAsButton()
@@ -68,6 +68,9 @@ public class Buttons : MonoBehaviour
                 n_on.SetActive(true);
                 n_off.SetActive(false);
                 GameObject.Find("SpaceAudio").GetComponent<AudioSource>().Play();
+                break;
+            case "Exit Button":
+                Application.Quit();
                 break;
 
         }
