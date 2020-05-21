@@ -24,6 +24,7 @@ public class ButtonHome : MonoBehaviour
         switch (gameObject.name)
         {
             case "Home":
+                GameObject.Find("NatureAudio").GetComponent<AudioSource>().Stop();
                 Application.LoadLevel("Menu");
                 break;
         }
